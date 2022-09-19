@@ -1,0 +1,92 @@
+:root{
+    --grey: #282828;
+    --dark-violet: #1e1147;
+    --indigo: #7a55eb;
+    --violet: #190061;
+    --purple: #240090;
+    --white: #fff;
+}
+html, body {
+    font-family: "Trebuchet MS";
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--grey);
+    color: var(--white);
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: max-content 1fr;
+}
+body > div{
+    margin: 20px;
+}
+h1{
+    padding: 10px;
+    margin-bottom: 0;
+    text-align: center;
+    grid-column: 1/-1;
+}
+h2{
+    margin-top: 0;
+}
+button{
+    color: var(--white);
+    background: var(--indigo);
+    padding: 7px 7px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:disabled{
+    background: #777;
+    color: #999;
+}
+.control-panel{
+    border-right: 1px solid var(--white);
+}
+.monitor-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.monitors{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.monitors a{
+    cursor: pointer;
+}
+.monitors span{
+    margin: 0 40px;
+}
+.monitors a.active, .monitors a:hover{
+    color: var(--white);
+}
+.monitor:not(.active) {
+    display: none !important;
+}
+.monitor.active{
+    height: 100%;
+}
+input{
+    background: var(--grey);
+    color: var(--white);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--indigo);
+}
+input[type = number]{
+    width: 50px;
+}
+
+table{
+    text-align: center;
+}

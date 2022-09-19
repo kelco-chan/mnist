@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <title>Convergence of Perceptrons</title>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css" />
+
+  <script src = "https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.20.0/dist/tf.min.js" ></script>
+  <script src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.5.1/dist/tfjs-vis.umd.min.js"></script>
+  <script src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script>
+</head>
+
+<body>
+    <h1>Convergence of perceptrons on the MNIST dataset</h1>
+    <div class="control-panel">
+      <h2>Control Panel</h2>
+      <h3>Actions</h3>
+      <button id="train">Start Training ▶</button>
+      <button id="download" disabled="true">Download training progress</button>
+      <h3>Configuration</h3>
+      <div>
+        Hidden layer count: <input id = "hiddenlayers" type="number"/>
+      </div>
+      <p id="status"></p>
+    </div>
+    <div class="monitor-wrapper">
+      <div class="monitors">
+        <a x-href="training" >Training Progress</a>
+        <span>/</span>
+        <a x-href= "doodle" class="active">Doodle a digit</a>
+        <span>/</span>
+        <a x-href="examples">Inference Examples</a>
+      </div>
+      <!--Accuracy plot-->
+      <div class="monitor" id="training">
+        <div class="canvas-wrapper" style="flex-grow: 1; padding: 20px">
+          <canvas id="plot" style="width: 100%;"></canvas>
+        </div>
+      </div>
+      <!--Digit doodling-->
+      <div class="monitor active" id="doodle" style="display: flex; flex-direction: row; padding: 20px">
+        <div class="canvas-wrapper" style="height:100%; aspect-ratio: 1">
+          <canvas class="doodle" width="28" height="28" style="background: var(--indigo);aspect-ratio: 1; height: 100%"></canvas>
+        </div>
+        <div style="margin-left: 20px; flex-grow: 1">
+          <button id="cleardoodle" style="margin-right: 30px">Clear canvas</button><button id="predict">Predict</button>
+          <table id="probabilities">
+            <tr><th style="width: 100px">Digit</th><th>Probability</th></tr>
+            <tr><td>0</td><td>?</td></tr>
+            <tr><td>1</td><td>?</td></tr>
+            <tr><td>2</td><td>?</td></tr>
+            <tr><td>3</td><td>?</td></tr>
+            <tr><td>4</td><td>?</td></tr>
+            <tr><td>5</td><td>?</td></tr>
+            <tr><td>6</td><td>?</td></tr>
+            <tr><td>7</td><td>?</td></tr>
+            <tr><td>8</td><td>?</td></tr>
+            <tr><td>9</td><td>?</td></tr>
+          </table>
+        </div>
+
+      </div>
+      <!--Inference exampls-->
+      <div class= "monitor" id = "examples">
+        <div style="padding: 20px">The authors couldn't be bothered to write this feature properly.</div>
+      </div>
+
+    </div>
+
+    
+
+  <script type="module" src="./index.js"></script>
+</body>
+
+</html>
